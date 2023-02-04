@@ -1,7 +1,8 @@
 import React  from 'react';
 import {StyleSheet, View, Text, SafeAreaView, StatusBar, TextInput} from 'react-native';
 import colors from './colors';
-//import RNPickerSelect from 'react-native-picker-select';
+import RNPickerSelect from 'react-native-picker-select';
+
 
 export default function Form() {
     return(
@@ -15,8 +16,22 @@ export default function Form() {
                 keyboardType="numeric"
                 style={[styles.input, styles.inputPercentage]}/>
 
-            </View>
+            
 
+            </View>
+            <View>
+            <RNPickerSelect 
+            style={picketSelectStyles}
+             onValueChange={(value) => console.log(value)}
+      items = { [
+        {label: '3 meses', value: 3},
+        {label: '6 meses', value: 6},
+        {label: '12 meses', value: 12},
+        {label: '24 meses', value: 24},
+       
+      ]}
+      />
+            </View>
           
         </View>
     );
@@ -28,7 +43,7 @@ const styles = StyleSheet.create({
 
     viewForm: {
         position:'absolute',
-        bottom: -90,
+        bottom: 0,
         width:'85%',
         paddingHorizontal: 50,
         backgroundColor: colors.PRIMARY_COLOR_DARK,
@@ -94,4 +109,5 @@ const picketSelectStyles = StyleSheet.create({
     },
   
 })
-   
+
+
